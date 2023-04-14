@@ -36,6 +36,7 @@ public class raycastcartest : MonoBehaviour
 
     public Text stats;
     public GameObject pointer;
+    public GameObject wheel;
 
     //wheels prefab here
     //public GameObject wheelsPrefab;
@@ -98,7 +99,7 @@ public class raycastcartest : MonoBehaviour
                     Debug.Log("braking" + brakeForce.ToString());
 
                     //debug brake ray
-                    Debug.DrawRay(t.position, brakeForce, Color.blue);
+                    Debug.DrawRay(t.position, brakeForce, Color.blue, 1.5f);
                 }
 
 
@@ -138,8 +139,9 @@ public class raycastcartest : MonoBehaviour
             Transform t = wheelTransforms[i];
             float horizontal = Input.GetAxis("Horizontal");
             float desiredSteeringAngle = Mathf.Clamp(horizontal * maxSteeringAngle, -maxSteeringAngle, maxSteeringAngle);
-            Debug.Log(desiredSteeringAngle);
+            //Debug.Log(desiredSteeringAngle);
             t.localRotation = Quaternion.Euler(0, desiredSteeringAngle, 0);
+            wheel.transform.rotation = Quaternion.Euler(0, 0, -desiredSteeringAngle);
             Debug.DrawRay(t.position, t.forward, Color.yellow);
         }
 
@@ -147,7 +149,7 @@ public class raycastcartest : MonoBehaviour
         //update stats for debug
         stats.text = myrb.velocity.magnitude.ToString();
         float pointerAngle = myrb.velocity.magnitude * -180f / 20;
-        Debug.Log($"{pointerAngle}");
+        //Debug.Log($"{pointerAngle}");
         pointer.transform.rotation = Quaternion.Euler(0, 0, pointerAngle);
 
     }

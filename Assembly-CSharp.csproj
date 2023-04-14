@@ -59,10 +59,11 @@
     <Compile Include="Assets\CarController.cs" />
     <Compile Include="Assets\CameraBlockTransparency.cs" />
     <Compile Include="Assets\raycastcartest.cs" />
+    <Compile Include="Assets\simpleAnimation.cs" />
     <Compile Include="Assets\timer.cs" />
+    <Compile Include="Assets\AnnounceController.cs" />
     <Compile Include="Assets\spin2d.cs" />
     <Compile Include="Assets\miscdebug.cs" />
-    <Compile Include="Assets\simpleAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
