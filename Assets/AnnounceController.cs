@@ -8,7 +8,7 @@ public class AnnounceController : MonoBehaviour
 {
     public Text announcementMessage;
 
-    public string testMessage = "test test test test testtest test test test testtest test test test test\\";
+    public string testMessage = "dummy message\\";
     int testIndex = 0;
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class AnnounceController : MonoBehaviour
     }
 
     //maybe move the loop / array string thingy to somewhere else instead (refactor)
-    //fix it! this does not work at all, only for demonstration
+    //out of bound once everytime, why
     void AddLetter()
     {
         if (testIndex < testMessage.Length)

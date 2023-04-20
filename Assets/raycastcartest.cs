@@ -26,8 +26,8 @@ public class raycastcartest : MonoBehaviour
 
     public float brakingForceMagnitude = 0.5f;
     public float brakingForceVelFactor = 0.5f;
-    private bool isBraking = false;
-    public GameObject trackmarkPrefab;
+    //private bool isBraking = false;
+    //public GameObject trackmarkPrefab;
 
     public float nitroForce = 100f;
 
@@ -162,5 +162,16 @@ public class raycastcartest : MonoBehaviour
         wheelObject.transform.position = position;
         wheelObject.transform.parent = transform;
         return wheelObject.transform;
+    }
+
+    //handle vehicle crash here
+    //check for velocity magnitude?
+    //I also want the vehicle to morph when crashed, but maybe have to subdivide the model
+    //also notify announcerController to type out message reactions
+
+    //maybe a rumble material shader actually that stabilize after a bit
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collided with something");
     }
 }
