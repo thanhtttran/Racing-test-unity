@@ -348,6 +348,7 @@
 "Assets/AudioManagerController.cs"
 "Assets/BackgroundMusicController.cs"
 "Assets/CameraBlockTransparency.cs"
+"Assets/CarSoundController.cs"
 "Assets/MainMenuController.cs"
 "Assets/MapSelectionController.cs"
 "Assets/misc effects scripts/spin2d.cs"
