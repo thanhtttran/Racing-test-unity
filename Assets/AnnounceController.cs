@@ -29,10 +29,10 @@ public class AnnounceController : MonoBehaviour
     {
         if (testIndex < testMessage.Length)
         {
-            testIndex++;
             announcementMessage.text += testMessage[testIndex];
+            testIndex++;
         }
-        else
-            announcementMessage.text += "! ";
+        //else
+            //announcementMessage.text += "! ";
     }
 }
