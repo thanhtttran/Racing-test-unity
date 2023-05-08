@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d020886bb3546441080d0d02a4a4f0b0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - idleClip: {instanceID: 0}
+  - forwardClip: {instanceID: 0}
+  - backwardClip: {instanceID: 0}
+  - crashClip: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
