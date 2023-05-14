@@ -10528,7 +10528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1295335329}
   raceManager: {fileID: 9853074}
-  lapsAmount: 3
+  lapsAmount: 2
   UIlapCount: {fileID: 888406231}
 --- !u!1 &1288532198
 GameObject:

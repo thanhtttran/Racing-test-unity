@@ -24,6 +24,7 @@ public class BackgroundMusicController : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = backgroundMusic;
         audioSource.loop = true;
+        audioSource.volume = 0.2f;
         audioSource.Play();
     }
 

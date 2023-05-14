@@ -11,8 +11,7 @@ public class AnnounceController : MonoBehaviour
     public string Message = "dummy message\\";
     int testIndex = 0;
 
-    //maybe move the loop / array string thingy to somewhere else instead (refactor)
-    //out of bound once everytime, why
+    
     private void AddLetter()
     {
         if (testIndex < Message.Length)
@@ -28,7 +27,7 @@ public class AnnounceController : MonoBehaviour
         Message = newMessage;
         CancelInvoke();
 
-        //reset the announcement, this is so ugly...
+        //reset the announcement
         testIndex = 0;
         announcementMessage.text = "";
         InvokeRepeating("AddLetter", 0.0f, 0.05f);

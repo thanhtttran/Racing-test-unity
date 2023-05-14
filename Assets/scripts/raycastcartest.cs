@@ -175,6 +175,6 @@ public class raycastcartest : MonoBehaviour
     //maybe a rumble material shader actually that stabilize after a bit
     void OnCollisionEnter(Collision collision)
     {
-        announceController.typeMessage("Drive the care carefully!");
+        announceController.typeMessage("Drive the car carefully!");
     }
 }
