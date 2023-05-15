@@ -5,6 +5,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine.UI;//remove this when youre done testing
 using UnityEngine;
 using UnityEditor.VersionControl;
+using Unity.VisualScripting;
 
 public class raycastcartest : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class raycastcartest : MonoBehaviour
     public float damping = 1f;
 
     public float acceleration = 5f;
+    public float maxSpeed = 30f;
 
     //steering stuff
     public float tireGripFactor = 1f;
@@ -103,6 +105,7 @@ public class raycastcartest : MonoBehaviour
 
                     //debug brake ray
                     Debug.DrawRay(t.position, brakeForce, Color.blue, 1.5f);
+                    announceController.typeMessage("Braking!");
                 }
 
 
@@ -121,7 +124,14 @@ public class raycastcartest : MonoBehaviour
                 //running
                 float vertical = Input.GetAxis("Vertical");
                 Vector3 run = myrb.transform.forward * vertical * acceleration;
-                myrb.AddForceAtPosition(run, t.position, ForceMode.Acceleration);
+                if (vel.magnitude < maxSpeed)
+                {
+                    myrb.AddForceAtPosition(run, t.position, ForceMode.Acceleration);
+                }
+                if (vel.magnitude > maxSpeed)
+                {
+                    announceController.typeMessage("Whoa, Slow down!");
+                }
 
 
                 //==============================================================================
@@ -175,6 +185,19 @@ public class raycastcartest : MonoBehaviour
     //maybe a rumble material shader actually that stabilize after a bit
     void OnCollisionEnter(Collision collision)
     {
-        announceController.typeMessage("Drive the car carefully!");
+        int whatToSay = (int)UnityEngine.Random.Range(0, 2);
+        switch (whatToSay)
+        {
+            case 0:
+                announceController.typeMessage("Drive the car carefully!");
+                break;
+            case 1:
+                announceController.typeMessage("Stop crashing you doofus!");
+                break;
+            case 2:
+                announceController.typeMessage("You are breaking the car!");
+                break;
+        }
+
     }
 }

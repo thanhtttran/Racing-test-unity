@@ -21,7 +21,7 @@ public class MapSelectionController : MonoBehaviour
     public void LoadMap2()
     {
         backgroundMusicController.StopBackgroundMusic();
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("level2");
     }
 
     public void GoBackToMainMenu()

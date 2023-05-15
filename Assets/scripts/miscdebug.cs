@@ -11,12 +11,18 @@ public class miscdebug : MonoBehaviour
     public Quaternion startingRotation;
     public Text timeStats;
 
+    public GameObject camera;
+    public Vector3 cameraPos;
+    public Quaternion cameraRot;
+
 
     private float elapsedTime;
     void Start()
     {
         startingPosition = transform.position;
         startingRotation = transform.rotation;
+        cameraPos = camera.transform.position;
+        cameraRot = camera.transform.rotation; 
     }
 
     // Update is called once per frame
@@ -38,6 +44,7 @@ public class miscdebug : MonoBehaviour
     {
         transform.position = startingPosition;
         transform.rotation = startingRotation;
-        elapsedTime = 0;
+        camera.transform.position = cameraPos;
+        camera.transform.rotation = cameraRot;  
     }
 }
