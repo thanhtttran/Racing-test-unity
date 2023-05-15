@@ -105,7 +105,6 @@ public class raycastcartest : MonoBehaviour
 
                     //debug brake ray
                     Debug.DrawRay(t.position, brakeForce, Color.blue, 1.5f);
-                    announceController.typeMessage("Braking!");
                 }
 
 
@@ -128,9 +127,9 @@ public class raycastcartest : MonoBehaviour
                 {
                     myrb.AddForceAtPosition(run, t.position, ForceMode.Acceleration);
                 }
-                if (vel.magnitude > maxSpeed)
+                if (vel.magnitude > maxSpeed+3f)
                 {
-                    announceController.typeMessage("Whoa, Slow down!");
+                    announceController.typeMessageInstant("Whoa, Slow down!");
                 }
 
 
@@ -198,6 +197,14 @@ public class raycastcartest : MonoBehaviour
                 announceController.typeMessage("You are breaking the car!");
                 break;
         }
+    }
 
+    //handle dialogues here:
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            announceController.typeMessage("Braking!");
+        }
     }
 }

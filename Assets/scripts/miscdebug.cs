@@ -21,8 +21,8 @@ public class miscdebug : MonoBehaviour
     {
         startingPosition = transform.position;
         startingRotation = transform.rotation;
-        cameraPos = camera.transform.position;
-        cameraRot = camera.transform.rotation; 
+        cameraPos = camera.transform.localPosition;
+        cameraRot = camera.transform.localRotation; 
     }
 
     // Update is called once per frame
@@ -35,6 +35,11 @@ public class miscdebug : MonoBehaviour
                 Debug.Log("resetted");
                 Reset();
             }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("resetted camera");
+                ResetCamera();
+            }
         }
         timeStats.text = elapsedTime.ToString();
     }
@@ -44,7 +49,12 @@ public class miscdebug : MonoBehaviour
     {
         transform.position = startingPosition;
         transform.rotation = startingRotation;
-        camera.transform.position = cameraPos;
-        camera.transform.rotation = cameraRot;  
+        ResetCamera();
+    }
+
+    public void ResetCamera()
+    {
+        camera.transform.localPosition = cameraPos;
+        camera.transform.localRotation = cameraRot;
     }
 }

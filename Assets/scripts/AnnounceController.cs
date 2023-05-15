@@ -4,20 +4,34 @@ using UnityEngine.UI;//remove this when youre done testing
 using UnityEngine;
 
 
+
 public class AnnounceController : MonoBehaviour
 {
     public Text announcementMessage;
 
+    public AudioSource audioHandler;
+    public AudioClip dialogueSound;
+    public AudioClip yellSound;
+
+    public float dialogueVol = 0.5f;
+    public float dialoguePitch = 1.5f;
+
     public string Message = "dummy message\\";
     int testIndex = 0;
 
-    private bool isTyping = false;
-
-    
+    //private bool isTyping = false;
+    private void Start()
+    {
+        audioHandler.volume = dialogueVol;
+        audioHandler.pitch = dialoguePitch;
+    }
     private void AddLetter()
     {
         if (testIndex < Message.Length)
         {
+            if(!audioHandler.isPlaying) { 
+            audioHandler.PlayOneShot(dialogueSound);
+            }
             announcementMessage.text += Message[testIndex];
             testIndex++;
         }
@@ -35,19 +49,16 @@ public class AnnounceController : MonoBehaviour
         InvokeRepeating("AddLetter", 0.0f, 0.05f);
     }
 
-    public void typeMessage(string newMessage, bool force)
+    public void typeMessageInstant(string newMessage)
     {
-        if(!force)
+        Message = newMessage;
+        CancelInvoke();
+        //reset the announcement
+        if (!audioHandler.isPlaying)
         {
-            typeMessage(newMessage);
+            audioHandler.PlayOneShot(yellSound);
         }
-        else
-        {
-            Message = newMessage;
-            CancelInvoke();
-            testIndex = 0;
-            announcementMessage.text = "";
-            InvokeRepeating("AddLetter", 0.0f, 0.05f);
-        }
+        testIndex = 0;
+        announcementMessage.text = newMessage;
     }
 }
